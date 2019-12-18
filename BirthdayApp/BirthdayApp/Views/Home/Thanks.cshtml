@@ -1,0 +1,19 @@
+﻿@model BirthdayApp.Models.DavetiyeModel
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<h1>Thanks, Mr/Mrs. @Model.Ad</h1>
+
+<div class="lead">
+    @if (Model.KatilmaDurumu==true)
+    {
+        @:Happy about you! All preps. done..!
+        @Html.Action("Katilanlar", "Home");
+
+    }
+    else
+    {
+        @:Feel sorry about you. Thanx for info.
+    }
+</div>

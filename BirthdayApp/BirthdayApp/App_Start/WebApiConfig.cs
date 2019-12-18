@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+
+namespace BirthdayApp
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{action}/{id}",// controllerden sonra actionda ekleyebilrsin.
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            // XML'i JSON çıktısına çevirme.
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+        }
+    }
+}

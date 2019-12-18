@@ -1,0 +1,35 @@
+﻿@model BirthdayApp.Models.DavetiyeModel
+@{
+    ViewBag.Title = "DavetiyeFormu";
+}
+
+<div class="panel panel-success">
+    <div class="panel-heading"><h4>You Are Invıted!</h4></div>
+    <div class="panel-body">
+        <!--Html BeginForm default olarak post methodudur.İçine parametre yazmadıgımızdan home'deki davetiye formuna gidicek.-->
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Name :</label>
+                @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Email :</label>
+                @Html.TextBoxFor(x => x.Eposta, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>You Coming?</label>
+                @Html.DropDownListFor(x=> x.KatilmaDurumu, new[]
+           {
+               new SelectListItem(){Text="Yes I'll Come",Value=bool.TrueString},
+               new SelectListItem(){Text="No I'll Not.",Value=bool.FalseString}
+           },"Geliyor musun?",new { @class = "form-control" })
+            </div>
+            <div class="text-center">
+                <input class="btn btn-success"  type="submit" value="Send!"/>
+            </div>
+
+        }
+    </div>
+</div>
+
